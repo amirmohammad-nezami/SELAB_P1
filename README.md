@@ -2,7 +2,7 @@
 
 یک فرانت‌اند ایستا و فارسی برای مدیریت سادهٔ کارهای روزانه. پروژه با HTML، CSS و JavaScript خالص ساخته شده و بدون نیاز به build یا سرور اجرا می‌شود.
 
-> آدرس نهایی پس از فعال شدن GitHub Pages: `https://<USERNAME>.github.io/<REPOSITORY>/`
+> آدرس GitHub Pages: `https://amirmohammad-nezami.github.io/SELAB_P1/`
 
 ## اجرای محلی
 
@@ -72,14 +72,11 @@ git push -u origin feature/task-planner
 
 ### سیاست Pull Request و محافظت از main
 
-پس از ایجاد مخزن در GitHub، از مسیر **Settings → Branches → Add branch protection rule** یک قانون برای `main` بسازید و گزینه‌های زیر را فعال کنید:
+برای این مخزن انفرادی، از مسیر **Settings → Branches → Add branch protection rule** یک قانون برای `main` بسازید و گزینه‌های زیر را فعال کنید:
 
 - **Require a pull request before merging**
-- **Require approvals** (حداقل یک تأیید از عضو دیگر تیم)
-- **Require status checks to pass before merging** (پس از اضافه‌کردن check مناسب)
-- **Do not allow bypassing the above settings**، در صورت در دسترس بودن
 
-بنابراین هیچ عضوی نباید مستقیم به `main` push کند؛ هر تغییر از feature به `develop` و سپس از `develop` به `main` با Pull Request بررسی و merge می‌شود.
+برای کار انفرادی نیازی به approval شخص دیگر نیست؛ در عوض هر تغییر را از شاخهٔ feature با Pull Request خودتان بررسی و merge کنید. پس از فعال‌سازی قانون، push مستقیم به `main` انجام ندهید.
 
 ### conflictهای ثبت و رفع‌شده
 
@@ -110,7 +107,7 @@ git add assets/css/style.css
 git commit -m "resolve mobile layout conflict with main styles"
 ```
 
-هنگام conflict، نشانه‌های `<<<<<<<`، `=======` و `>>>>>>>` باید حذف شوند. نتیجهٔ حل‌شده را در مرورگر آزمایش و سپس commit کنید. این دو commit باید در تاریخچهٔ واقعی مخزن تیم باقی بمانند.
+هنگام conflict، نشانه‌های `<<<<<<<`، `=======` و `>>>>>>>` باید حذف شوند. نتیجهٔ حل‌شده را در مرورگر آزمایش و سپس commit کنید. این دو commit باید در تاریخچهٔ واقعی مخزن باقی بمانند.
 
 ### برنامهٔ حداقل ۲۰ commit معنادار
 
@@ -195,7 +192,7 @@ Git به‌جای ذخیرهٔ صرفِ تفاوت فایل‌ها، وضعیت 
 
 ## چک‌لیست تحویل
 
-- [ ] اعضای تیم به مخزن GitHub افزوده شده‌اند.
+- [ ] remote مخزن GitHub تنظیم و همهٔ شاخه‌های لازم push شده‌اند.
 - [ ] حداقل ۲۰ commit معنادار در `git log --oneline --all` دیده می‌شود.
 - [ ] حداقل سه شاخهٔ معنادار به remote ارسال شده‌اند.
 - [ ] دو conflict واقعی حل و commit شده‌اند.
