@@ -1,10 +1,14 @@
-# نقطه | تمرکز امروز
+# گزارش آزمایش اول | نقطه
 
-یک فرانت‌اند ایستا و فارسی برای مدیریت سادهٔ کارهای روزانه. پروژه با HTML، CSS و JavaScript خالص ساخته شده و بدون نیاز به build یا سرور اجرا می‌شود.
+**دانشجو:** امیرمحمد نظامی<br>
+**شمارهٔ دانشجویی:** ۴۰۱۱۰۶۶۳۹<br>
+**نوع پروژه:** انفرادی (تیم یک‌نفره)
+
+برای این آزمایش یک فرانت‌اند ایستا و فارسی با نام «نقطه» پیاده‌سازی کردم. ایدهٔ سایت، یک برنامه‌ریز خیلی سبک برای کارهای روزانه است. پروژه را با HTML، CSS و JavaScript خالص نوشته‌ام تا بدون مرحلهٔ build و بدون نیاز به سرور اجرا شود.
 
 > آدرس GitHub Pages: `https://amirmohammad-nezami.github.io/SELAB_P1/`
 
-## اجرای محلی
+## اجرای پروژه روی سیستم
 
 فایل `index.html` را با مرورگر باز کنید. برای اجرای محلی با یک وب‌سرور سبک نیز می‌توان از دستور زیر استفاده کرد:
 
@@ -14,7 +18,7 @@ python3 -m http.server 8000
 
 سپس به `http://localhost:8000` بروید.
 
-## قابلیت‌ها
+## امکاناتی که پیاده‌سازی کردم
 
 - طراحی واکنش‌گرا و راست‌به‌چپ
 - فهرست کارهای روزانه با ذخیره‌سازی در `localStorage`
@@ -37,29 +41,28 @@ python3 -m http.server 8000
 
 ## استقرار خودکار با GitHub Pages
 
-فایل workflow در `.github/workflows/deploy-pages.yml` قرار دارد و با هر push به شاخهٔ `main` این مراحل را اجرا می‌کند:
+فایل workflow در `.github/workflows/deploy-pages.yml` قرار دارد. هر بار که به شاخهٔ `main` push شود، این مراحل انجام می‌شوند:
 
 1. کد مخزن را دریافت می‌کند.
 2. تنظیمات GitHub Pages را آماده می‌کند.
 3. کل فایل‌های ایستا را به‌عنوان artifact بارگذاری می‌کند.
 4. artifact را با action رسمی GitHub روی Pages منتشر می‌کند.
 
-برای فعال‌سازی نخستین استقرار در GitHub، در مخزن به **Settings → Pages** بروید و در بخش **Build and deployment**، مقدار **Source** را روی **GitHub Actions** قرار دهید. پس از اتمام workflow، آدرس نهایی در summary همان اجرا و در بخش Pages نمایش داده می‌شود.
+برای فعال‌شدن نخستین استقرار، از مسیر **Settings → Pages** و بخش **Build and deployment**، مقدار **Source** را روی **GitHub Actions** می‌گذارم. پس از پایان workflow، آدرس نهایی در summary اجرا و بخش Pages نمایش داده می‌شود.
 
 ## گزارش فرآیند Git
 
 ### شاخه‌ها
 
-فرآیند پیشنهادی توسعه بر مبنای Pull Request است و دست‌کم این شاخه‌های معنادار را دارد:
+با اینکه پروژه انفرادی است، برای تمرین درست Git و جدا نگه‌داشتن تغییرها از چند شاخه استفاده کردم. شاخه‌های زیر در مخزن وجود دارند:
 
 | شاخه | کاربرد | مقصد ادغام |
 | --- | --- | --- |
 | `main` | نسخهٔ پایدار و قابل استقرار | — |
 | `develop` | یکپارچه‌سازی تغییرات روزمره | `main` با PR |
-| `feature/landing-page` | ساخت ساختار و طراحی صفحهٔ اصلی | `develop` با PR |
 | `feature/task-planner` | پیاده‌سازی فهرست کارها و localStorage | `develop` با PR |
-| `feature/github-pages` | افزودن workflow استقرار خودکار | `main` با PR |
-| `hotfix/mobile-layout` | رفع اشکال نمایش موبایل | `main` با PR |
+| `feature/hero-copy` و `feature/hero-message` | تغییر متن بخش معرفی | `main` |
+| `feature/accent-color` و `feature/accent-contrast` | اصلاح رنگ تأکیدی سایت | `main` |
 
 نمونهٔ دستورات ایجاد و انتشار شاخه:
 
@@ -72,36 +75,34 @@ git push -u origin feature/task-planner
 
 ### سیاست Pull Request و محافظت از main
 
-برای این مخزن انفرادی، از مسیر **Settings → Branches → Add branch protection rule** یک قانون برای `main` بسازید و گزینه‌های زیر را فعال کنید:
+چون مخزن من انفرادی است، تأیید شخص دیگری لازم ندارم؛ ولی برای رعایت شرط آزمایش، از مسیر **Settings → Branches → Add branch protection rule** یک قانون برای `main` می‌سازم و گزینهٔ زیر را فعال می‌کنم:
 
 - **Require a pull request before merging**
 
-برای کار انفرادی نیازی به approval شخص دیگر نیست؛ در عوض هر تغییر را از شاخهٔ feature با Pull Request خودتان بررسی و merge کنید. پس از فعال‌سازی قانون، push مستقیم به `main` انجام ندهید.
+از این به بعد هر تغییر را در شاخهٔ feature انجام می‌دهم، برای آن Pull Request باز می‌کنم و بعد از بررسی خودم آن را merge می‌کنم. در نتیجه push مستقیم به `main` انجام نمی‌دهم.
 
 ### conflictهای ثبت و رفع‌شده
 
-دو conflict محتوایی در تاریخچهٔ محلی این تحویل ایجاد و حل شده‌اند:
+برای آشنایی با conflict، عمداً دو تغییر ناسازگار روی یک فایل در دو شاخه انجام دادم و بعد آن‌ها را حل کردم:
 
 | conflict | شاخه‌های درگیر | فایل | commit حل |
 | --- | --- | --- | --- |
 | متن معرفی | `feature/hero-copy` و `feature/hero-message` | `index.html` | `fix: resolve hero copy merge conflict` |
 | رنگ تأکیدی | `feature/accent-color` و `feature/accent-contrast` | `assets/css/style.css` | `fix: resolve accent color merge conflict` |
 
-در هر مورد ابتدا یکی از شاخه‌ها merge شد، merge شاخهٔ دوم conflict ساخت و پس از انتخاب نتیجهٔ نهایی، conflict با commit مستقل ثبت شد. نمونهٔ روند کلی:
-
-برای ثبت شفاف conflictها، هر عضو باید تغییرات مستقل خود را در شاخهٔ جداگانه commit و push کند. نمونهٔ قابل تکرار:
+در هر مورد ابتدا یکی از شاخه‌ها را merge کردم. موقع merge شاخهٔ دوم conflict ایجاد شد و بعد از انتخاب نتیجهٔ مناسب، آن را با یک commit مستقل ثبت کردم. روند کلی به شکل زیر بود:
 
 ```bash
-# conflict اول: دو تغییر ناسازگار در تیتر صفحه
-git switch feature/landing-page
-git merge develop
+# conflict اول: تغییر ناسازگار در متن معرفی
+git switch main
+git merge feature/hero-message
 # فایل دارای conflict را دستی اصلاح کنید، سپس:
 git add index.html
 git commit -m "resolve conflict between landing heading and develop copy"
 
-# conflict دوم: دو تغییر ناسازگار در style.css
-git switch hotfix/mobile-layout
-git merge main
+# conflict دوم: تغییر ناسازگار در رنگ تأکیدی
+git switch main
+git merge feature/accent-contrast
 # فایل را اصلاح کنید، سپس:
 git add assets/css/style.css
 git commit -m "resolve mobile layout conflict with main styles"
@@ -109,33 +110,23 @@ git commit -m "resolve mobile layout conflict with main styles"
 
 هنگام conflict، نشانه‌های `<<<<<<<`، `=======` و `>>>>>>>` باید حذف شوند. نتیجهٔ حل‌شده را در مرورگر آزمایش و سپس commit کنید. این دو commit باید در تاریخچهٔ واقعی مخزن باقی بمانند.
 
-### برنامهٔ حداقل ۲۰ commit معنادار
+### commitهای معنادار
 
-هر سطر زیر یک تغییر کوچک، مستقل و قابل بازبینی است؛ پیام‌ها را می‌توان دقیقاً با همین مفهوم استفاده کرد. از commitهای صوری یا چند تغییر نامرتبط در یک commit خودداری کنید.
+تا زمان تکمیل این گزارش، تاریخچهٔ پروژه بیش از ۲۹ commit دارد. سعی کردم هر commit فقط یک تغییر مشخص داشته باشد؛ مثلاً تغییر ظاهر، اضافه‌کردن قابلیت، مستندات یا حل conflict را در یک commit جدا ثبت کردم. چند نمونه از commitهای مهم:
 
-| # | پیام پیشنهادی commit | تغییر مستقل |
+| # | نام commit | تغییر مستقل |
 | --- | --- | --- |
-| 1 | `chore: initialize static frontend repository` | ایجاد مخزن و فایل آغازین |
-| 2 | `chore: add gitignore rules` | افزودن قواعد نادیده‌گرفتن فایل‌ها |
-| 3 | `feat: add semantic page skeleton` | اسکلت HTML |
-| 4 | `feat: add site header and navigation` | سربرگ |
-| 5 | `feat: add hero section content` | بخش معرفی |
-| 6 | `style: add base typography and color tokens` | متغیرها و تایپوگرافی |
-| 7 | `style: add hero card layout` | کارت برنامهٔ نمونه |
-| 8 | `feat: add product feature cards` | ویژگی‌ها |
-| 9 | `style: add responsive mobile layout` | نمایش موبایل |
-| 10 | `feat: add task planner markup` | رابط برنامه‌ریز |
-| 11 | `feat: add task creation interaction` | افزودن کار |
-| 12 | `feat: persist tasks in local storage` | ماندگاری داده |
-| 13 | `feat: add task completion and deletion` | تکمیل و حذف |
-| 14 | `feat: add dark theme toggle` | حالت تیره |
-| 15 | `style: refine focus and accessible controls` | دسترس‌پذیری کنترل‌ها |
-| 16 | `docs: document local development` | راهنمای اجرا |
-| 17 | `ci: add GitHub Pages deployment workflow` | workflow استقرار |
-| 18 | `ci: configure Pages artifact deployment` | artifact و permissionها |
-| 19 | `fix: resolve landing page merge conflict` | حل conflict اول |
-| 20 | `fix: resolve mobile styles merge conflict` | حل conflict دوم |
-| 21 | `docs: add Git workflow and deployment report` | گزارش نهایی |
+| 1 | `chore: add gitignore rules` | افزودن قواعد نادیده‌گرفتن فایل‌ها |
+| 2 | `feat: add semantic landing page` | اسکلت HTML و محتوای صفحه |
+| 3 | `feat: add keyboard skip navigation` | دسترس‌پذیری با صفحه‌کلید |
+| 4 | `style: add responsive application design` | طراحی واکنش‌گرا |
+| 5 | `feat: add local task planner interactions` | افزودن، تکمیل و حذف کارها |
+| 6 | `ci: add GitHub Pages deployment workflow` | workflow استقرار |
+| 7 | `feat: add branded browser icon` | favicon و manifest |
+| 8 | `docs: add pull request checklist` | چک‌لیست Pull Request |
+| 9 | `ci: configure action dependency updates` | به‌روزرسانی actionها |
+| 10 | `fix: resolve hero copy merge conflict` | حل conflict اول |
+| 11 | `fix: resolve accent color merge conflict` | حل conflict دوم |
 
 پس از هر تغییر، وضعیت را بررسی و تغییر مرتبط را جداگانه ثبت کنید:
 
@@ -166,7 +157,7 @@ git log --oneline --graph --all
 | `git rebase` | commitهای شاخهٔ فعلی را روی پایهٔ جدید بازنویسی می‌کند | تاریخچه را خطی‌تر اما شناسهٔ commitها را عوض می‌کند |
 | `git cherry-pick <commit>` | فقط یک commit مشخص را روی شاخهٔ فعلی اعمال می‌کند | یک commit جدید معادل آن می‌سازد |
 
-قاعدهٔ مهم: روی تاریخچه‌ای که دیگران از آن استفاده می‌کنند rebase نکنید، مگر با هماهنگی تیم.
+قاعدهٔ مهم: اگر بعدها مخزن چندنفره شد، نباید روی تاریخچه‌ای که دیگران از آن استفاده می‌کنند بدون هماهنگی rebase انجام دهم.
 
 ### ۴. تفاوت `reset`، `revert`، `restore`، `switch` و `checkout`
 
@@ -188,15 +179,15 @@ Git به‌جای ذخیرهٔ صرفِ تفاوت فایل‌ها، وضعیت 
 
 ### ۷. تفاوت local repository و remote repository
 
-**Local repository** نسخهٔ Git روی رایانهٔ توسعه‌دهنده است؛ تاریخچه، شاخه‌ها و commitهای شخص می‌توانند حتی بدون اینترنت وجود داشته باشند. **Remote repository** نسخه‌ای اشتراکی روی سرویسی مانند GitHub است که اعضای تیم با `push` تغییرات محلی را به آن می‌فرستند و با `fetch` یا `pull` تغییرات دیگران را می‌گیرند. remote محل همکاری، Pull Request، محافظت از شاخه و اجرای GitHub Actions است، نه جایگزین repository محلی.
+**Local repository** نسخهٔ Git روی رایانهٔ من است؛ تاریخچه، شاخه‌ها و commitها حتی بدون اینترنت هم وجود دارند. **Remote repository** نسخهٔ مخزن روی سرویسی مانند GitHub است. من با `push` تغییرات محلی را به آن فرستادم و از آن برای نگه‌داری نسخهٔ عمومی پروژه، Pull Request، محافظت از شاخه و اجرای GitHub Actions استفاده می‌کنم. remote جایگزین repository محلی نیست، بلکه نسخهٔ آنلاین و اشتراکی آن است.
 
 ## چک‌لیست تحویل
 
-- [ ] remote مخزن GitHub تنظیم و همهٔ شاخه‌های لازم push شده‌اند.
-- [ ] حداقل ۲۰ commit معنادار در `git log --oneline --all` دیده می‌شود.
-- [ ] حداقل سه شاخهٔ معنادار به remote ارسال شده‌اند.
-- [ ] دو conflict واقعی حل و commit شده‌اند.
-- [ ] ادغام‌ها از طریق Pull Request انجام شده‌اند.
+- [x] remote مخزن GitHub تنظیم و همهٔ شاخه‌های لازم push شده‌اند.
+- [x] حداقل ۲۰ commit معنادار در `git log --oneline --all` دیده می‌شود.
+- [x] حداقل سه شاخهٔ معنادار به remote ارسال شده‌اند.
+- [x] دو conflict واقعی حل و commit شده‌اند.
+- [ ] برای تغییرهای بعدی، ادغام‌ها از طریق Pull Request انجام می‌شوند.
 - [ ] قانون محافظت از `main` فعال است.
 - [ ] GitHub Pages با Source = GitHub Actions فعال و آدرس نهایی بالای README جایگزین شده است.
 - [ ] ویدئوی مراحل طبق ضوابط درس ضبط شده است.
