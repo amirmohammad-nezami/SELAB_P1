@@ -81,7 +81,16 @@ git push -u origin feature/task-planner
 
 بنابراین هیچ عضوی نباید مستقیم به `main` push کند؛ هر تغییر از feature به `develop` و سپس از `develop` به `main` با Pull Request بررسی و merge می‌شود.
 
-### سناریوی ثبت و رفع دو conflict
+### conflictهای ثبت و رفع‌شده
+
+دو conflict محتوایی در تاریخچهٔ محلی این تحویل ایجاد و حل شده‌اند:
+
+| conflict | شاخه‌های درگیر | فایل | commit حل |
+| --- | --- | --- | --- |
+| متن معرفی | `feature/hero-copy` و `feature/hero-message` | `index.html` | `fix: resolve hero copy merge conflict` |
+| رنگ تأکیدی | `feature/accent-color` و `feature/accent-contrast` | `assets/css/style.css` | `fix: resolve accent color merge conflict` |
+
+در هر مورد ابتدا یکی از شاخه‌ها merge شد، merge شاخهٔ دوم conflict ساخت و پس از انتخاب نتیجهٔ نهایی، conflict با commit مستقل ثبت شد. نمونهٔ روند کلی:
 
 برای ثبت شفاف conflictها، هر عضو باید تغییرات مستقل خود را در شاخهٔ جداگانه commit و push کند. نمونهٔ قابل تکرار:
 
