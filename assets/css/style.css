@@ -1,4 +1,4 @@
-:root { --ink:#19232d; --muted:#64717d; --paper:#fffdf8; --surface:#f4f1ea; --line:#e6e1d8; --orange:#ec6b3f; --orange-deep:#c94e28; --navy:#213340; --blue:#dff0f7; --green:#dcebdc; }
+:root { --ink:#19232d; --muted:#64717d; --paper:#fffdf8; --surface:#f4f1ea; --line:#e6e1d8; --orange:#df633a; --orange-deep:#c94e28; --navy:#213340; --blue:#dff0f7; --green:#dcebdc; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; color:var(--ink); background:var(--paper); font-family:Vazirmatn, Tahoma, sans-serif; line-height:1.75; }.skip-link { position:fixed; top:-60px; right:20px; z-index:10; padding:8px 14px; color:#fff; background:var(--orange); border-radius:8px; transition:top .2s; }.skip-link:focus { top:15px; }
